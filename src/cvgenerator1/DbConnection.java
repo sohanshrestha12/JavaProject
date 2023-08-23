@@ -12,7 +12,7 @@ import java.sql.DriverManager;
  * @author Dell
  */
 public class DbConnection {
-     public static final String dburl = "jjdbc:mysql://localhost:3306/cvgenerator?zeroDateTimeBehavior=CONVERT_TO_NULL";
+     public static final String dburl = "jdbc:mysql://localhost:3306/cvgenerator";
     public static final String username = "root";
     public static final String password = "";
     
