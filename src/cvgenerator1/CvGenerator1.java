@@ -14,7 +14,7 @@ public class CvGenerator1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    
+ 
         System.out.println("Heloo world");
         MainFrame frame = new MainFrame();
         frame.setVisible(true);

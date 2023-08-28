@@ -12,7 +12,7 @@ import java.sql.DriverManager;
  * @author Dell
  */
 public class DbConnection {
-     public static final String dburl = "jjdbc:mysql://localhost:3306/cvgenerator?zeroDateTimeBehavior=CONVERT_TO_NULL";
+     public static final String dburl = "jdbc:mysql://localhost/cvgenerator";
     public static final String username = "root";
     public static final String password = "";
     
@@ -20,7 +20,7 @@ public class DbConnection {
         Connection conn;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("this is connectionm");
+            System.out.println("this is connection");
             conn = DriverManager.getConnection(dburl, username, password);
             if(conn != null){
                 System.out.print("yes");
