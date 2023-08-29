@@ -4,6 +4,11 @@
  */
 package cvgenerator1;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dell
@@ -337,6 +342,40 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+                try {
+            String dburl = "jdbc:mysql://localhost/cvgenerator";
+            String username = "root";
+            String password = "";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("this is connection");
+            Connection cn = DriverManager.getConnection(dburl, username, password);
+            
+            
+            
+            String sql = "insert into user(Fname,Lname,Address,Contact,Email,Nationality,Dob,Prof_Field,Skills,Cname,Wdone,College,TOQA,TOQB,About) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement ps =cn.prepareStatement(sql);
+            ps.setString(1,jTextField1.getText());
+            ps.setString(2,jTextField2.getText());
+            ps.setString(3,jTextField3.getText());
+            ps.setString(4,jTextField4.getText());
+            ps.setString(5,jTextField5.getText());
+            ps.setString(6,jTextField8.getText());
+            ps.setString(7,jTextField9.getText());
+            ps.setString(8,jTextField7.getText());      
+            ps.setString(9,jTextField6.getText());
+            ps.setString(10,jTextField12.getText());
+            ps.setString(11,jTextField13.getText());
+            ps.setString(12,jTextField15.getText());
+            ps.setString(13,jTextField16.getText());
+            ps.setString(14,jTextField17.getText());
+            ps.setString(15,jTextArea1.getText());
+            
+            
+            ps.execute();
+            JOptionPane.showMessageDialog(this, "saved successfully");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
