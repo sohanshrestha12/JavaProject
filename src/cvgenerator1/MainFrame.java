@@ -81,6 +81,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jTextField10 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CV Generator");
@@ -101,7 +102,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel14.setText("Company Name:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 103, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 103, -1));
 
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,22 +124,22 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel18.setText("Education Background");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 151, -1));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 151, -1));
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("College/University:");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 103, -1));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 103, -1));
 
         jTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField15ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 171, -1));
+        getContentPane().add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 171, -1));
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel20.setText("Title of Qualification A:");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 135, -1));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 135, -1));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel6.setText("Contact:");
@@ -149,7 +150,7 @@ public class MainFrame extends javax.swing.JFrame {
                 jTextField16ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 171, -1));
+        getContentPane().add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 171, -1));
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +161,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel21.setText("Title of Qualification B:");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 135, -1));
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 135, -1));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setText("Email:");
@@ -171,7 +172,7 @@ public class MainFrame extends javax.swing.JFrame {
                 jTextField17ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 171, -1));
+        getContentPane().add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 171, -1));
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,9 +223,9 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel10.setText("Nationality:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 225, 80, -1));
 
-        jButton1.setText("Admin Login");
+        jButton1.setText("Search");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 83, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 100, 20));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("PERSONAL INFORMATION");
@@ -289,6 +290,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, -1, -1));
+
+        jTextField10.setText("jTextField10");
+        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 350, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -415,19 +419,42 @@ public class MainFrame extends javax.swing.JFrame {
                  PdfPTable table = new PdfPTable(2);
          // table.getDefaultCell().setBorder(0);
 //          myDocument.add(image);
-             myDocument.add(new Paragraph(jTextField1.getText()+"  "+jTextField2.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,32,Font.BOLD,BaseColor.DARK_GRAY ))); 
-//          myDocument.add(new Paragraph("",FontFactory.getFont(FontFactory.TIMES_BOLD,9,Font.PLAIN,BaseColor.DARK_GRAY))); 
-//          myDocument.add(new Paragraph("",FontFactory.getFont(FontFactory.TIMES_BOLD,9,Font.PLAIN,BaseColor.DARK_GRAY)));
-//          myDocument.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------------"));
-//          myDocument.add(new Paragraph("CONTACT DETAILS",FontFactory.getFont(FontFactory.TIMES_BOLD,9,Font.BOLD,BaseColor.DARK_GRAY ))); 
-//          myDocument.add(new Paragraph(txt_email.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,7,Font.PLAIN,BaseColor.DARK_GRAY  )));
-//          myDocument.add(new Paragraph(txt_tel.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,7,Font.PLAIN ,BaseColor.DARK_GRAY )));
-//          myDocument.add(new Paragraph(txt_add1.getText() +", "+txt_add2.getText()+", "+txt_pc.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,7,Font.PLAIN,BaseColor.DARK_GRAY  )));
-//          myDocument.add(new Paragraph(txt_nationality.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,7,Font.PLAIN,BaseColor.DARK_GRAY  )));
-//          myDocument.add(new Paragraph(txt_dob.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,7,Font.PLAIN,BaseColor.DARK_GRAY  )));  
-//          myDocument.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------------"));
-//          myDocument.add(new Paragraph("SKILLS",FontFactory.getFont(FontFactory.TIMES_BOLD,9,Font.BOLD,BaseColor.DARK_GRAY  )));
-//          table.setHeaderRows(1);
+            myDocument.add(new Paragraph(jTextField1.getText()+"  "+jTextField2.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,36,Font.BOLD,BaseColor.DARK_GRAY ))); 
+            myDocument.add(new Paragraph("",FontFactory.getFont(FontFactory.TIMES_BOLD,9,Font.PLAIN,BaseColor.DARK_GRAY))); 
+            myDocument.add(new Paragraph("",FontFactory.getFont(FontFactory.TIMES_BOLD,9,Font.PLAIN,BaseColor.DARK_GRAY)));
+            myDocument.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------------"));
+          myDocument.add(new Paragraph("CONTACT DETAILS",FontFactory.getFont(FontFactory.TIMES_BOLD,16,Font.BOLD,BaseColor.DARK_GRAY ))); 
+          myDocument.add(new Paragraph(jTextField5.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));
+          myDocument.add(new Paragraph(jTextField4.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN ,BaseColor.DARK_GRAY )));
+          myDocument.add(new Paragraph(jTextField3.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));
+          myDocument.add(new Paragraph(jTextField8.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));
+          myDocument.add(new Paragraph(jTextField9.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));  
+          myDocument.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------------"));
+          myDocument.add(new Paragraph("SKILLS",FontFactory.getFont(FontFactory.TIMES_BOLD,16,Font.BOLD,BaseColor.DARK_GRAY  )));
+          table.setHeaderRows(1);
+          table.addCell(jTextField6.getText());
+          table.addCell(jTextField6.getText());
+          table.addCell(jTextField6.getText());
+          table.addCell(jTextField6.getText());
+          myDocument.add(table);
+
+           myDocument.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------------"));
+          myDocument.add(new Paragraph("QUALIFICATIONS",FontFactory.getFont(FontFactory.TIMES_BOLD,16,Font.BOLD,BaseColor.DARK_GRAY  )));
+          myDocument.add(new Paragraph(jTextField15.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));   
+          myDocument.add(new Paragraph(jTextField16.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));   
+          myDocument.add(new Paragraph(jTextField17.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));   
+          myDocument.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------------"));
+          myDocument.add(new Paragraph("WORK EXPERIENCE",FontFactory.getFont(FontFactory.TIMES_BOLD,16,Font.BOLD,BaseColor.DARK_GRAY  )));
+          myDocument.add(new Paragraph(jTextField12.getText()+System.lineSeparator()+jTextField13.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY)));
+//          myDocument.add(new Paragraph(txt_company2.getText()+System.lineSeparator()+txt_worktwo.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,7,Font.PLAIN,BaseColor.DARK_GRAY)));
+//          myDocument.add(new Paragraph(txt_company3.getText()+System.lineSeparator()+txt_workthree.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,7,Font.PLAIN,BaseColor.DARK_GRAY)));
+          myDocument.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------------"));
+//          myDocument.add(new Paragraph("REFERENCES",FontFactory.getFont(FontFactory.TIMES_BOLD,9,Font.BOLD,BaseColor.DARK_GRAY  )));
+//          myDocument.add(new Paragraph("Available upon request",FontFactory.getFont(FontFactory.TIMES_BOLD,6,Font.PLAIN,BaseColor.DARK_GRAY  )));
+
+
+
+
             myDocument.close();
             }
             catch(DocumentException| IOException e){
@@ -497,6 +524,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField15;
