@@ -8,6 +8,8 @@ import com.itextpdf.text.BaseColor;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.Connection;
+import java.sql.*;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import javax.swing.JFileChooser;
@@ -21,6 +23,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Font;
 import java.io.IOException;
 
+
 /**
  *
  * @author Dell
@@ -32,8 +35,10 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
-    }
+         jTextArea1.setLineWrap(true);
 
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,7 +72,6 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -82,6 +86,10 @@ public class MainFrame extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jTextField10 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
+        jTextField18 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CV Generator");
@@ -199,7 +207,7 @@ public class MainFrame extends javax.swing.JFrame {
                 jTextField6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 309, 134, -1));
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 134, -1));
 
         jLabel9.setText("Profession Field");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 281, 91, -1));
@@ -211,21 +219,22 @@ public class MainFrame extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 278, 171, -1));
 
-        jButton2.setText("+");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 309, -1, -1));
-
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel10.setText("Nationality:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 225, 80, -1));
 
+        jButton1.setMnemonic('s');
         jButton1.setText("Search");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 100, 20));
+        jButton1.setMaximumSize(new java.awt.Dimension(39, 22));
+        jButton1.setMinimumSize(new java.awt.Dimension(39, 22));
+        jButton1.setPreferredSize(new java.awt.Dimension(39, 22));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 100, 24));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("PERSONAL INFORMATION");
@@ -291,8 +300,36 @@ public class MainFrame extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, -1, -1));
 
-        jTextField10.setText("jTextField10");
-        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 350, -1));
+        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField10ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 80, -1));
+
+        jLabel4.setText("Search by id:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 134, -1));
+
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 309, 134, -1));
+
+        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField18ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 134, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -338,19 +375,9 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        //        JTextField newTextField = new javax.swing.JTextField();
-        //        newTextField.setBounds(200, 400, 100, 50);
-        //
-        //        getContentPane().add(newTextField);
-        //         revalidate();  // Refresh the content pane
-        //         repaint();     // Repaint the JFrame
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-        System.out.println(jTextField1.getText());
+
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -377,8 +404,9 @@ public class MainFrame extends javax.swing.JFrame {
             
             
             
-            String sql = "insert into user(Fname,Lname,Address,Contact,Email,Nationality,Dob,Prof_Field,Skills,Cname,Wdone,College,TOQA,TOQB,About) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement ps =cn.prepareStatement(sql);
+            String sql = "insert into user(Fname,Lname,Address,Contact,Email,Nationality,Dob,Prof_Field,Skill1,Skill2,Skill3,Skill4,Cname,Wdone,College,TOQA,TOQB,About) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            System.out.println(sql);
+            PreparedStatement ps =cn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1,jTextField1.getText());
             ps.setString(2,jTextField2.getText());
             ps.setString(3,jTextField3.getText());
@@ -387,17 +415,35 @@ public class MainFrame extends javax.swing.JFrame {
             ps.setString(6,jTextField8.getText());
             ps.setString(7,jTextField9.getText());
             ps.setString(8,jTextField7.getText());      
-            ps.setString(9,jTextField6.getText());
-            ps.setString(10,jTextField12.getText());
-            ps.setString(11,jTextField13.getText());
-            ps.setString(12,jTextField15.getText());
-            ps.setString(13,jTextField16.getText());
-            ps.setString(14,jTextField17.getText());
-            ps.setString(15,jTextArea1.getText());
+            ps.setString(9,jTextField14.getText());
+            ps.setString(10,jTextField6.getText());
+            ps.setString(11,jTextField18.getText());
+            ps.setString(12,jTextField11.getText());
+            ps.setString(13,jTextField12.getText());
+            ps.setString(14,jTextField13.getText());
+            ps.setString(15,jTextField15.getText());
+            ps.setString(16,jTextField16.getText());
+            ps.setString(17,jTextField17.getText());
+            ps.setString(18,jTextArea1.getText());
             
             
-            ps.execute();
+            int rowsAffected = ps.executeUpdate();
             JOptionPane.showMessageDialog(this, "saved successfully");
+            
+            
+            
+             if (rowsAffected > 0) {
+                ResultSet generatedKeys = ps.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    int insertedId = generatedKeys.getInt(1); // Assuming the ID is an integer
+                     JOptionPane.showMessageDialog(this, "Your id is: " + insertedId);
+                }
+                generatedKeys.close();
+            } else {
+                System.out.println("No rows were inserted.");
+            }
+           
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
         }
@@ -429,13 +475,15 @@ public class MainFrame extends javax.swing.JFrame {
           myDocument.add(new Paragraph(jTextField3.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));
           myDocument.add(new Paragraph(jTextField8.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));
           myDocument.add(new Paragraph(jTextField9.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));  
+          myDocument.add(new Paragraph(jTextField7.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));  
+
           myDocument.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------------"));
           myDocument.add(new Paragraph("SKILLS",FontFactory.getFont(FontFactory.TIMES_BOLD,16,Font.BOLD,BaseColor.DARK_GRAY  )));
           table.setHeaderRows(1);
+          table.addCell(jTextField14.getText());
           table.addCell(jTextField6.getText());
-          table.addCell(jTextField6.getText());
-          table.addCell(jTextField6.getText());
-          table.addCell(jTextField6.getText());
+          table.addCell(jTextField18.getText());
+          table.addCell(jTextField11.getText());
           myDocument.add(table);
 
            myDocument.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------------"));
@@ -449,6 +497,10 @@ public class MainFrame extends javax.swing.JFrame {
 //          myDocument.add(new Paragraph(txt_company2.getText()+System.lineSeparator()+txt_worktwo.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,7,Font.PLAIN,BaseColor.DARK_GRAY)));
 //          myDocument.add(new Paragraph(txt_company3.getText()+System.lineSeparator()+txt_workthree.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,7,Font.PLAIN,BaseColor.DARK_GRAY)));
           myDocument.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------------"));
+          
+        myDocument.add(new Paragraph("About me",FontFactory.getFont(FontFactory.TIMES_BOLD,16,Font.BOLD,BaseColor.DARK_GRAY  )));
+                  myDocument.add(new Paragraph(jTextArea1.getText(),FontFactory.getFont(FontFactory.TIMES_BOLD,11,Font.PLAIN,BaseColor.DARK_GRAY  )));   
+
 //          myDocument.add(new Paragraph("REFERENCES",FontFactory.getFont(FontFactory.TIMES_BOLD,9,Font.BOLD,BaseColor.DARK_GRAY  )));
 //          myDocument.add(new Paragraph("Available upon request",FontFactory.getFont(FontFactory.TIMES_BOLD,6,Font.PLAIN,BaseColor.DARK_GRAY  )));
 
@@ -463,6 +515,101 @@ public class MainFrame extends javax.swing.JFrame {
             
     }//GEN-LAST:event_jButton5ActionPerformed
     }
+    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField10ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        System.out.println(jTextField10.getText());
+        
+        
+        try {
+            String jdbcUrl = "jdbc:mysql://localhost/cvgenerator";
+            String username = "root";
+            String password = "";
+
+            Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
+
+            int targetId = Integer.parseInt(jTextField10.getText()) ; // Replace with the ID you want to retrieve
+
+            String query = "SELECT * FROM user WHERE id = ?";
+            PreparedStatement pps = conn.prepareStatement(query);
+            pps.setInt(1, targetId);
+
+            ResultSet resultSet = pps.executeQuery();
+
+            if (resultSet.next()) {
+                // Retrieve data from all columns in the result set
+//                int id = resultSet.getInt("id");
+                String Fname = resultSet.getString("Fname");
+                String Lname = resultSet.getString("Lname");
+                String Address = resultSet.getString("Address");
+                String Contact = resultSet.getString("Contact");
+                String Email = resultSet.getString("Email");
+                String Nationality = resultSet.getString("Nationality");
+                String Dob = resultSet.getString("Dob");
+                String Prof_Field = resultSet.getString("Prof_Field");
+                String Skill1 = resultSet.getString("Skill1");
+                String Skill2 = resultSet.getString("Skill2");
+                String Skill3 = resultSet.getString("Skill3");
+                String Skill4 = resultSet.getString("Skill4");
+                String Cname = resultSet.getString("Cname");
+                String Wdone = resultSet.getString("Wdone");
+                String College = resultSet.getString("College");
+                String TOQA = resultSet.getString("TOQA");
+                String TOQB = resultSet.getString("TOQB");
+                String About = resultSet.getString("About");
+
+
+                jTextField1.setText(Fname);
+                jTextField2.setText(Lname);
+                jTextField3.setText(Address);
+                jTextField4.setText(Contact);
+                jTextField5.setText(Email);
+                jTextField8.setText(Nationality);
+                jTextField9.setText(Dob);
+                jTextField7.setText(Prof_Field);
+                jTextField14.setText(Skill1);
+                jTextField6.setText(Skill2);
+                jTextField18.setText(Skill3);
+                jTextField11.setText(Skill4);
+                jTextField12.setText(Cname);
+                jTextField13.setText(Wdone);
+                jTextField15.setText(College);
+                jTextField16.setText(TOQA);
+                jTextField17.setText(TOQB);
+                jTextArea1.setText(About);
+                
+
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "No data found for ID: " + targetId);
+
+            }
+
+            resultSet.close();
+            pps.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField18ActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -497,10 +644,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
@@ -516,6 +661,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -525,11 +671,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
