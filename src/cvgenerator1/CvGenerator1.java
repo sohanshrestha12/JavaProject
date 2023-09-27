@@ -18,8 +18,7 @@ public class CvGenerator1 {
         System.out.println("Heloo world");
         MainFrame frame = new MainFrame();
         frame.setVisible(true);
-        DbConnection conn = new DbConnection();
-        conn.connectDb();
+     
     }
     
 }
