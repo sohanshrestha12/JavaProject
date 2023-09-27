@@ -408,9 +408,6 @@ public class MainFrame extends javax.swing.JFrame {
         String Dob = jTextField9.getText();
         String Prof_Field = jTextField7.getText();
         String Skill1 = jTextField14.getText();
-        String Skill2 = jTextField6.getText();
-        String Skill3 = jTextField18.getText();
-        String Skill4 = jTextField11.getText();
         String Cname = jTextField12.getText();
         String Wdone = jTextField13.getText();
         String College = jTextField15.getText();
@@ -485,9 +482,6 @@ public class MainFrame extends javax.swing.JFrame {
         String Dob = jTextField9.getText();
         String Prof_Field = jTextField7.getText();
         String Skill1 = jTextField14.getText();
-        String Skill2 = jTextField6.getText();
-        String Skill3 = jTextField18.getText();
-        String Skill4 = jTextField11.getText();
         String Cname = jTextField12.getText();
         String Wdone = jTextField13.getText();
         String College = jTextField15.getText();
@@ -578,7 +572,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        System.out.println(jTextField10.getText());
+//        System.out.println(jTextField10.getText());
 
         try {
             String jdbcUrl = "jdbc:mysql://localhost/cvgenerator";
